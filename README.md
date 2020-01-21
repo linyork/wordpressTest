@@ -10,7 +10,7 @@ composer 安裝
 ## init
 
 ```
-cp /wp-config-local.php /wordpress/wp-config.php 
+cp wp-config-local.php wordpress/wp-config.php 
 ```
 複製 local 的設定檔
 
