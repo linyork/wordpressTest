@@ -13,3 +13,6 @@ composer.lock
 .idea/php.xml
 .idea/vcs.xml
 .idea/wordpressTest.iml
+
+# wordpress about
+/wordpress/wp-config.php
