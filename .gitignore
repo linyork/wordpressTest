@@ -16,3 +16,4 @@ composer.lock
 
 # wordpress about
 /wordpress/wp-config.php
+/wordpress/wp-content/languages
