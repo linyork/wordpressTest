@@ -1,0 +1,15 @@
+# mac about
+.DS_Store
+
+# composer about
+vendor
+composer.lock
+
+# phpstorm about
+.idea/.gitignore
+.idea/composerJson.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/php.xml
+.idea/vcs.xml
+.idea/wordpressTest.iml

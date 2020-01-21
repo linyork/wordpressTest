@@ -1,0 +1,72 @@
+version: "3"
+
+networks:
+    frontend:
+    backend:
+
+services:
+    
+    # php
+    php:
+        container_name: php
+        networks:
+            - backend
+        image: coretechtw/php:7.3-fpm
+        expose:
+            - 9000
+        volumes:
+            - ./php/php-fpm.d:/usr/local/etc/php-fpm.d
+            - ./../:/var/www/html/
+    # nginx
+    nginx:
+        container_name: nginx
+        networks:
+            - backend
+            - frontend
+        image: nginx:1.17.1
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./nginx/ssl:/etc/ssl
+            - ./nginx/conf:/etc/nginx/conf.d
+            - ./log/nginx:/var/log/nginx
+            - ./../:/var/www/html/
+    
+    # mysql
+    mysql:
+        container_name: mysql
+        networks:
+            - backend
+        ports:
+            - "3306:3306"
+        image: mysql:5.6
+        environment:
+            MYSQL_ROOT_PASSWORD: admin
+            MYSQL_DATABASE: wordpress
+            MYSQL_USER: username
+            MYSQL_PASSWORD: password
+        command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --innodb_use_native_aio=0
+        volumes:
+            - ./mysql/data/:/var/lib/mysql
+#
+## phpmyadmin
+#  phpmyadmin:
+#    container_name: phpmyadmin
+#    networks:
+#      - frontend
+#      - backend
+#    image: phpmyadmin/phpmyadmin
+#    ports:
+#      - "8080:80"
+#    environment:
+#      PMA_HOST: mariadb
+#
+## redis
+#  redis:
+#    container_name: redis
+#    networks:
+#      - backend
+#    image: redis:3.2
+#    ports:
+#      - "6379:6379"

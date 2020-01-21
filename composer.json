@@ -1,0 +1,14 @@
+{
+    "name": "linyouxun/wordpress-test",
+    "description": "wordpress test",
+    "type": "project",
+    "require": {
+        "johnpbloch/wordpress": "*"
+    },
+    "authors": [
+        {
+            "name": "york",
+            "email": "jason945119@gmail.com"
+        }
+    ]
+}
